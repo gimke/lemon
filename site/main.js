@@ -5,8 +5,9 @@
 import React from "react"
 import {render} from "react-dom";
 
+import Block from "../src/block"
 
-const App = () => <span>A</span>;
+const App = () => <span><Block/></span>;
 
 
 const router = <App/>;

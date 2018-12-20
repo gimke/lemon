@@ -16,7 +16,7 @@ module.exports = {
         path: path.resolve(__dirname, './site/static/dist'),
         filename: '[name].js',
         publicPath: env === 'development' ? '/static/dist' : '//s.gimke.com/static/dist',
-        library: "console"
+        library: "lemon"
     },
     // resolve: {
     //     alias: {
