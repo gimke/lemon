@@ -3,7 +3,7 @@ import "./style"
 
 export default class Block extends Component {
     state = {
-        text: "T"
+        text: "AAA"
     };
     render() {
         return <div>{this.state.text}</div>;
