@@ -6,7 +6,7 @@ import (
 
 func main() {
 	c := cart.Default()
-	c.Use("/console/*file", cart.File("./static/dist/console.html"))
+	c.Use("/home/*file", cart.File("./static/dist/index.html"))
 	c.Use("/static/*file", cart.Static("./static", false))
 	c.Run(":8081")
 }

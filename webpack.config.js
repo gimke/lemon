@@ -10,10 +10,10 @@ const env = process.env.NODE_ENV || 'development';
 module.exports = {
     mode: env,
     entry: {
-        console: './main.js'
+        bundle: './site/main.js'
     },
     output: {
-        path: path.resolve(__dirname, './static/dist'),
+        path: path.resolve(__dirname, './site/static/dist'),
         filename: '[name].js',
         publicPath: env === 'development' ? '/static/dist' : '//s.gimke.com/static/dist',
         library: "console"
@@ -40,11 +40,11 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            title: '工作台',
+            title: 'lemon',
             hash: true,
             inject: false,
-            filename: 'console.html',
-            template: 'index.html'
+            filename: 'index.html',
+            template: './site/index.html'
         }),
         new MiniCssExtractPlugin({
             filename: '[name].css',
