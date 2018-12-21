@@ -1,13 +1,13 @@
 {
-  "name": "@gimke/lemon",
-  "version": "1.0.2",
+  "name": "lemon-ui",
+  "version": "1.2.3",
   "description": "lemon ui",
   "license": "MPL-2.0",
   "main": "lib/index.js",
   "module": "esm/index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/gimke/lemon.git"
+    "url": "https://github.com/gimke/lemon-ui.git"
   },
   "scripts": {
     "clean:commonjs": "rimraf lib",
