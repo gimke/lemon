@@ -3,6 +3,7 @@
  * input
  */
 import React, {Component} from "react";
+import PropTypes from "prop-types";
 
 export default class Input extends Component {
     constructor(props) {
@@ -18,6 +19,10 @@ export default class Input extends Component {
             empty: empty,
         };
     }
+
+    static propTypes = {
+        size: PropTypes.oneOf(['small', 'large']),
+    };
 
     static defaultProps = {
         prefixClass: "lemon-input",
@@ -56,16 +61,17 @@ export default class Input extends Component {
     };
 
     render() {
-        const {addon, style, className, prefixClass, ...rest} = this.props;
+        const {addon, style, className, prefixClass, size, ...rest} = this.props;
 
         const classInner = prefixClass + "-inner";
+        const classSize = size ? " " + prefixClass + "-" + size : "";
         const classTip = prefixClass + "-label";
         const classBorder = prefixClass + "-border";
         const classAddon = prefixClass + "-addon";
         const labelMoved = !this.state.empty ? " label-moved" : "";
         const focused = this.state.focus ? " focused" : "";
 
-        let thisClassName = prefixClass + labelMoved + focused;
+        let thisClassName = prefixClass + classSize + labelMoved + focused;
         if (className) {
             thisClassName += " " + className;
         }

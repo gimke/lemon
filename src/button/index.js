@@ -16,6 +16,6 @@ export default class Button extends Component {
         if (className) {
             thisClassName += " " + className;
         }
-        return <button className={thisClassName} style={style}>{this.props.children}</button>
+        return <button {...rest} className={thisClassName} style={style}>{this.props.children}</button>
     }
 }
