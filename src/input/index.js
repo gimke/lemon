@@ -65,9 +65,9 @@ export default class Input extends Component {
         const labelMoved = !this.state.empty ? " label-moved" : "";
         const focused = this.state.focus ? " focused" : "";
 
-        let thisClassName = this.props.prefixClass + labelMoved + focused;
+        let thisClassName = prefixClass + labelMoved + focused;
         if (className) {
-            thisClassName += " " + this.props.className;
+            thisClassName += " " + className;
         }
         if ("value" in this.props) {
             if (this.props.value) {
@@ -76,6 +76,9 @@ export default class Input extends Component {
                 rest.value = ""
             }
             delete rest.defaultValue;
+        }
+        if ("label" in this.props) {
+            delete rest.placeholder;
         }
         return <span className={thisClassName} style={style}>
             <div className={classInner}>
