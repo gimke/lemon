@@ -1,46 +1,69 @@
-.lm-input-wrapper {
+@input-prefix-class: lemon-input;
+
+.@{input-prefix-class} {
   padding: 8px 0;
   display: inline-block;
   position: relative;
-  & .lm-input {
-    border-radius: 4px;
+  .@{input-prefix-class}-inner {
     position: relative;
-    & .tip {
+    background: #fff;
+    display: table;
+    .@{input-prefix-class}-label {
       position: absolute;
       left: 10px;
-      top: 4px;
-      z-index: -1;
+      top: 10px;
       font-size: 14px;
+      line-height: 100%;
+      padding: 0 4px;
+      background: #fff;
       transform-origin: bottom left;
-      transition: transform 150ms cubic-bezier(0.4,0,0.2,1),opacity 150ms cubic-bezier(0.4,0,0.2,1);
+      transition: transform 150ms cubic-bezier(0.4,0,0.2,1),color 150ms cubic-bezier(0.4,0,0.2,1);
+      user-select: none;
+      pointer-events: none;
+      color: #5f6368;
     }
-    & .border {
+    .@{input-prefix-class}-border {
       position: absolute;
       top: 0;
       left: 0;
       right: 0;
       bottom: 0;
       border-radius: 4px;
-      border: 1px solid gray;
-      z-index: -1;
+      border: 1px solid #dadce0;
       transition: border 150ms ease-in;
     }
-    & input {
-      padding: 6px 10px;
+    .@{input-prefix-class}-addon {
+      display: table-cell;
+      vertical-align: middle;
+      padding: 0 8px;
+    }
+    input {
+      position: relative;
+      padding: 10px 14px;
       outline: none;
       border: none;
-      line-height: 100%;
+      line-height: 14px;
+      height: 34px;
       background: transparent;
+      width: 100%;
+      display: table-cell;
     }
   }
-  &.focus {
-    & .lm-input {
-      & .tip {
-        -webkit-transform:scale(.75) translateY(-155%);
-        transform:scale(.75) translateY(-155%)
+  &.label-moved {
+    .@{input-prefix-class}-inner {
+      .@{input-prefix-class}-label {
+        transform:scale(.75) translateY(-28px);
       }
-      & .border {
-        border: 2px solid blue;
+    }
+  }
+  &.focused {
+    .@{input-prefix-class}-inner {
+      .@{input-prefix-class}-label {
+        transform:scale(.75) translateY(-28px);
+        color: #1a73e8;
+      }
+      .@{input-prefix-class}-border {
+        border: 2px solid #1a73e8;
       }
     }
   }
