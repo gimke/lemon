@@ -5,48 +5,63 @@
 .@{button-prefix-class} {
   vertical-align: middle;
   border-radius: 4px;
-  border: 1px solid #aaa;
   padding: 0 15px;
-  height: 32px;
+  height: 34px;
   outline: none;
-}
-
-.c1 {
-  background: @blue-1;
-}
-
-.c2 {
-  background: @blue-2;
-}
-
-.c3 {
-  background: @blue-3;
-}
-
-.c4 {
-  background: @blue-4;
-}
-
-.c5 {
-  background: @blue-5;
-}
-
-.c6 {
-  background: @blue-6;
-}
-
-.c7 {
-  background: @blue-7;
-}
-
-.c8 {
-  background: @blue-8;
-}
-
-.c9 {
-  background: @blue-9;
-}
-
-.c10 {
-  background: @blue-10;
+  background: #FFF;
+  font-size: 14px;
+  color: @text-color;
+  border: 1px solid @border-color-base;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  &[disabled] {
+    color: @text-color-secondary;
+    background: @border-color-split;
+    border: 1px solid @border-color-base;
+    box-shadow: none;
+    &:hover, &:active {
+      color: @text-color-secondary;
+      background: @border-color-split;
+      border: 1px solid @border-color-base;
+      box-shadow: none;
+    }
+  }
+  &:hover {
+    box-shadow: 0 1px 1px 0 rgba(@border-color-base, 0.5), 0 1px 3px 1px rgba(@border-color-base, 0.4);
+  }
+  &:active {
+    border: 1px solid @border-color-base;
+    box-shadow: 0 1px 1px 0 rgba(@border-color-base,0.5), 0 1px 4px 2px rgba(@border-color-base,0.4);
+  }
+  &.@{button-prefix-class}-primary {
+    border: none;
+    background: @primary-color;
+    color: #FFF;
+    &[disabled] {
+      color: @text-color-secondary;
+      background: @border-color-split;
+      border: 1px solid @border-color-base;
+      box-shadow: none;
+      &:hover, &:active {
+        color: @text-color-secondary;
+        background: @border-color-split;
+        border: 1px solid @border-color-base;
+        box-shadow: none;
+      }
+    }
+    &:hover {
+      box-shadow: 0 1px 1px 0 rgba(@primary-color,0.5), 0 1px 3px 1px rgba(@primary-color,0.4);
+    }
+    &:active {
+      background: @primary-7;
+      box-shadow: 0 1px 1px 0 rgba(@primary-7,0.5), 0 1px 4px 2px rgba(@primary-7,0.4);
+    }
+  }
+  &.@{button-prefix-class}-large {
+    height: 40px;
+    font-size: 16px;
+  }
+  &.@{button-prefix-class}-small {
+    height: 28px;
+    font-size: 12px;
+  }
 }
