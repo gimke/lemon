@@ -20,17 +20,23 @@ export default class Button extends Component {
     };
 
     render() {
-        const {style, type, size, className, prefixClass, ...rest} = this.props;
-        let thisClassName = prefixClass;
+        const {style, htmlType, type, size, className, prefixClass, ...rest} = this.props;
+        let classes = prefixClass;
         if (className) {
-            thisClassName += " " + className;
+            classes += " " + className;
         }
         if (size) {
-            thisClassName += " " + prefixClass + "-" + size;
+            classes += " " + prefixClass + "-" + size;
         }
         if (type) {
-            thisClassName += " " + prefixClass + "-" + type;
+            classes += " " + prefixClass + "-" + type;
         }
-        return <button {...rest} className={thisClassName} style={style}>{this.props.children}</button>
+        return <button
+            {...rest}
+            type={htmlType || 'button'}
+            className={classes}
+            style={style}>
+                {this.props.children}
+            </button>
     }
 }
