@@ -65,7 +65,7 @@ export default class Input extends Component {
 
         const classInner = prefixClass + "-inner";
         const classSize = size ? " " + prefixClass + "-" + size : "";
-        const classTip = prefixClass + "-label";
+        const classLabel = prefixClass + "-label";
         const classBorder = prefixClass + "-border";
         const classAddon = prefixClass + "-addon";
         const labelMoved = !this.state.empty ? " label-moved" : "";
@@ -88,7 +88,6 @@ export default class Input extends Component {
         }
         return <span className={thisClassName} style={style}>
             <div className={classInner}>
-                <div className={classBorder}/>
                 <input
                     {...rest}
                     onChange={this.onChange}
@@ -99,7 +98,8 @@ export default class Input extends Component {
                     }}
                 />
                 {addon ? <span className={classAddon}>{addon}</span> : null}
-                <div className={classTip}>{this.props.label}</div>
+                <div className={classBorder}/>
+                <div className={classLabel}>{this.props.label}</div>
             </div>
         </span>;
     }
