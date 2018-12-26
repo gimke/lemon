@@ -3,7 +3,6 @@
  * form
  */
 import React, {Component} from "react";
-import PropTypes from "prop-types";
 
 export default class Form extends Component {
     constructor(props) {
@@ -14,14 +13,22 @@ export default class Form extends Component {
         prefixClass: "lemon-form",
     };
 
+    onSubmit = (e) => {
+        e.preventDefault();
+        if (this.props.onSubmit) {
+            this.props.onSubmit(e);
+        }
+    };
+
     render() {
-        const { style, className, prefixClass, ...rest} = this.props;
+        const {style, className, prefixClass, ...rest} = this.props;
 
         let classes = prefixClass;
         if (className) {
             classes += " " + className;
         }
-        return <form className={classes} style={style}>
+        console.log(this.props);
+        return <form className={classes} style={style} {...rest}>
             {this.props.children}
         </form>;
     }
