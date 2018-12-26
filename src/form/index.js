@@ -27,7 +27,6 @@ export default class Form extends Component {
         if (className) {
             classes += " " + className;
         }
-        console.log(this.props);
         return <form className={classes} style={style} {...rest}>
             {this.props.children}
         </form>;
