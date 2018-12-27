@@ -8,19 +8,29 @@ import PropTypes from "prop-types";
 export default class Input extends Component {
     constructor(props) {
         super(props);
-        let empty = true;
-        if (props.value !== undefined) {
-            this.value = props.value;
-            empty = !props.value
-        } else {
-            this.value = props.defaultValue;
-            empty = !props.defaultValue
-        }
         this.state = {
             focus: false,
-            empty: empty,
-        };
+            empty: true
+        }
     }
+    componentWillMount() {
+       this.checkEmpty(this.props);
+    }
+    componentWillReceiveProps(nextProps) {
+        this.checkEmpty(nextProps);
+    }
+    checkEmpty = (props) => {
+        let empty = true;
+        if (props.value !== undefined) {
+            empty = !props.value
+        } else {
+            empty = !props.defaultValue
+        }
+        this.setState({
+            empty: empty,
+        });
+    };
+
     static propTypes = {
         size: PropTypes.oneOf(['small', 'large']),
     };
@@ -55,11 +65,16 @@ export default class Input extends Component {
         }
     };
     onChange = (e) => {
-        this.setState({empty: e.target.value === ""});
-        this.value = e.target.value;
+        if (this.props.value === undefined) {
+            this.setState({empty: e.target.value === ""});
+        }
         if (this.props.onChange) {
             this.props.onChange(e);
         }
+    };
+
+    getValue = () => {
+        return this.input.value;
     };
 
     render() {
