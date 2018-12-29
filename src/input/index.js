@@ -13,22 +13,30 @@ export default class Input extends Component {
             empty: true
         }
     }
+
     componentWillMount() {
-       this.checkEmpty(this.props);
+        this.checkEmpty(this.props);
     }
+
     componentWillReceiveProps(nextProps) {
         this.checkEmpty(nextProps);
     }
+
     checkEmpty = (props) => {
         let empty = true;
         if (props.value !== undefined) {
-            empty = !props.value
+            empty = !props.value;
+            this.setState({
+                empty: empty,
+            });
         } else {
-            empty = !props.defaultValue
+            if (props.defaultValue !== undefined) {
+                empty = !props.defaultValue;
+                this.setState({
+                    empty: empty,
+                });
+            }
         }
-        this.setState({
-            empty: empty,
-        });
     };
 
     static propTypes = {

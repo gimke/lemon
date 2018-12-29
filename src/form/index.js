@@ -43,12 +43,22 @@ export default class Form extends Component {
     onSubmit = (e) => {
         if(this.props.onSubmit) {
             let values = {};
+            let errors = null;
             Object.keys(this.items).map((key) => {
                 let component = this.items[key];
-                console.log(component.formItem);
-                values[key] = component.element.getValue();
+                if(component.control.getValue) {
+                    values[key] = component.control.getValue();
+                } else {
+                    console.error("The component "+component.control+" missing funtion getValue")
+                }
+                let err = component.formItem.validate();
+                if(err) {
+                    errors = errors || {};
+                    errors[key] = err;
+                }
             });
-            this.props.onSubmit(e,null,values)
+
+            this.props.onSubmit(e,errors,values)
         }
     };
     static defaultProps = {

@@ -2,6 +2,7 @@
 
 @input-prefix-class: lemon-input;
 
+
 .@{input-prefix-class} {
   vertical-align: middle;
   padding: 8px 0 0;
@@ -140,6 +141,23 @@
       .@{input-prefix-class}-inner {
         .@{input-prefix-class}-label {
           transform:scale(.75) translateY(-24px);
+        }
+      }
+    }
+  }
+}
+
+.has-error {
+  .@{input-prefix-class} {
+    .@{input-prefix-class}-inner {
+      .@{input-prefix-class}-border {
+        border:2px solid @error-color;
+      }
+    }
+    &.label-moved, &.focused {
+      .@{input-prefix-class}-inner {
+        .@{input-prefix-class}-label {
+          color: @error-color;
         }
       }
     }

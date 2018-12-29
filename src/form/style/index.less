@@ -1,0 +1,19 @@
+@import "../../style/base";
+
+@form-item-prefix-class: lemon-form-item;
+
+.@{form-item-prefix-class} {
+  margin-bottom: 16px;
+  .@{form-item-prefix-class}-control {
+
+  }
+  .@{form-item-prefix-class}-tip {
+    font-size: 12px;
+    margin: 8px 0 0;
+  }
+  &.has-error {
+    .@{form-item-prefix-class}-tip {
+      color: @error-color;
+    }
+  }
+}
