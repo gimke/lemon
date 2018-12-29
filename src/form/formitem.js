@@ -4,7 +4,7 @@
  */
 import React, {Component} from "react";
 import FormContext from "./formcontext";
-import schema from "async-validator";
+import Schema from "async-validator";
 
 export default class FormItem extends Component {
     static contextType = FormContext;
@@ -29,25 +29,24 @@ export default class FormItem extends Component {
     };
     validate = () => {
         let messages = null;
-        if(this.props.rules) {
-            for(let i=0;i<this.props.rules.length;i++) {
-                let rule =  this.props.rules[i];
+        if (this.props.rules) {
+            for (let i = 0; i < this.props.rules.length; i++) {
+                let rule = this.props.rules[i];
                 let value = {};
                 let descriptor = {};
                 value[this.props.name] = this.control.getValue();
                 descriptor[this.props.name] = rule;
-                let validator = new schema(descriptor);
-
+                let validator = new Schema(descriptor);
                 validator.validate(value, (errors, fields) => {
-                    if(errors) {
+                    if (errors) {
                         messages = messages || [];
                         messages.push(errors);
-                        this.setState({hasError:true,tip:rule.message});
+                        this.setState({hasError: true, tip: errors[0].message});
                     }
                 });
             }
-            if(!messages) {
-                this.setState({hasError:false,tip:this.props.tip});
+            if (!messages) {
+                this.setState({hasError: false, tip: this.props.tip});
             }
         }
         return messages;
@@ -73,7 +72,7 @@ export default class FormItem extends Component {
             return null;
         }
         return <div {...rest} className={classes} style={style}>
-            <div className={classControl} >
+            <div className={classControl}>
                 <component.type {...component.props} ref={(control) => {
                     this.control = control;
                     this.context.form.setItem(this.props.name, {formItem: this, control: control});

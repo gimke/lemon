@@ -6,6 +6,9 @@ onSubmit = (e, errors, values) => {
     console.log(e, errors, values);
 };
 
+validator: async-validator
+[async-validator](https://github.com/yiminghe/async-validator)
+
 <Form onSubmit={this.onSubmit}>
     <Form.Item
         name="name"
