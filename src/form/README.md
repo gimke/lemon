@@ -1,4 +1,4 @@
-
+validator: [async-validator](https://github.com/yiminghe/async-validator)
 
 ```javascript
 onSubmit = (e, errors, values) => {
@@ -6,8 +6,6 @@ onSubmit = (e, errors, values) => {
     console.log(e, errors, values);
 };
 
-validator: async-validator
-[async-validator](https://github.com/yiminghe/async-validator)
 
 <Form onSubmit={this.onSubmit}>
     <Form.Item
