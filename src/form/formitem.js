@@ -12,7 +12,7 @@ export default class FormItem extends Component {
     constructor(props, context) {
         super(props);
         this.state = {
-            hasError: false,
+            hasError: props.hasError,
             tip: props.tip,
         }
     }
@@ -20,6 +20,10 @@ export default class FormItem extends Component {
     componentWillReceiveProps(nextProps) {
         if (nextProps.tip !== this.props.tip) {
             this.setState({tip: nextProps.tip});
+        }
+
+        if (nextProps.hasError !== this.props.hasError) {
+            this.setState({hasError: nextProps.hasError});
         }
     }
 
@@ -54,7 +58,7 @@ export default class FormItem extends Component {
     };
 
     render() {
-        const {style, className, prefixClass, rules, tip, ...rest} = this.props;
+        const {style, className, prefixClass, rules, hasError, tip, ...rest} = this.props;
         const classTip = prefixClass + "-tip";
         const classControl = prefixClass + "-control";
         const classHasError = "has-error";
