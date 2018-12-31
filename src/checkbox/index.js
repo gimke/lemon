@@ -9,22 +9,25 @@ export default class Checkbox extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            checked: props.cheched
+            checked: props.defaultChecked || props.checked
         }
     }
-
     static defaultProps = {
-        checked: false,
         prefixClass: "lemon-checkbox",
     };
-    onClick = (e) => {
-        this.setState({checked:!this.state.checked});
+    onChange = (e) => {
+        if(this.props.checked === undefined) {
+            this.setState({checked:e.target.checked});
+        }
         if(this.props.onChange) {
             this.props.onChange(e);
         }
     };
     render() {
-        const {style, className, checked, prefixClass, ...rest} = this.props;
+        const {style, className, prefixClass, ...rest} = this.props;
+        const checkboxInput = prefixClass+"-input";
+        const checkboxInner = prefixClass+"-inner";
+
         let classes = prefixClass;
         if (className) {
             classes += " " + className;
@@ -32,18 +35,15 @@ export default class Checkbox extends Component {
         if (this.state.checked) {
             classes += " " + prefixClass + "-checked";
         }
-        return <div {...rest}
+        if (this.props.disabled) {
+            classes += " " + prefixClass + "-disabled";
+        }
+        return <span
                     className={classes}
                     style={style}
-                    onClick={this.onClick}
         >
-            <div className="rect"/>
-            <div className="check">
-                <div className="inner">
-                    <div className="a"/>
-                    <div className="b"/>
-                </div>
-            </div>
-        </div>
+            <input {...rest} onChange={this.onChange} type="checkbox" className={checkboxInput} />
+            <span className={checkboxInner} />
+        </span>;
     }
 }

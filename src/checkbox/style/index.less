@@ -1,119 +1,72 @@
 @import "../../style/base";
 
-@button-prefix-class: lemon-checkbox;
+@checkbox-prefix-class: lemon-checkbox;
 
-.@{button-prefix-class} {
-  -webkit-user-select: none;
-  -webkit-transition: border-color .2s cubic-bezier(0.4,0,0.2,1);
-  transition: border-color .2s cubic-bezier(0.4,0,0.2,1);
-  -webkit-tap-highlight-color: transparent;
-  border: 10px solid rgba(0,0,0,0.54);
-  -webkit-border-radius: 3px;
-  border-radius: 3px;
-  -webkit-box-sizing: content-box;
-  box-sizing: content-box;
-  cursor: pointer;
-  display: inline-block;
-  max-height: 0;
-  max-width: 0;
+.@{checkbox-prefix-class} {
   outline: none;
   overflow: visible;
   position: relative;
   vertical-align: middle;
   z-index: 0;
-  .rect {
-    -webkit-transition: all .1s .15s cubic-bezier(0.4,0,0.2,1);
-    transition: all .1s .15s cubic-bezier(0.4,0,0.2,1);
-    -webkit-transition-property: transform,border-radius;
-    transition-property: transform,border-radius;
-    border: 8px solid white;
-    left: -8px;
+  input {
+    opacity: 0;
     position: absolute;
-    top: -8px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
   }
-  .check {
-    -webkit-animation: quantumWizPaperAnimateCheckMarkOut .2s forwards;
-    animation: quantumWizPaperAnimateCheckMarkOut .2s forwards;
-    clip: rect(0,20px,20px,0);
-    height: 20px;
-    left: -10px;
-    position: absolute;
-    top: -10px;
-    width: 20px;
-    .inner {
-      -webkit-transform: rotate(-45deg);
-      transform: rotate(-45deg);
-      -webkit-transform-origin: 0;
-      transform-origin: 0;
-      left: 10px;
-      height: 100%;
-      pointer-events: none;
+  .@{checkbox-prefix-class}-input:focus+.@{checkbox-prefix-class}-inner {
+    border: 1px solid @primary-color;
+  }
+  .@{checkbox-prefix-class}-inner {
+    width: 16px;
+    height: 16px;
+    border: 1px solid @border-color-base;
+    display: block;
+    position: relative;
+    top: 0;
+    left: 0;
+    border-radius: 2px;
+    pointer-events: none;
+    transition: all .3s;
+    &:after {
+      transform: rotate(45deg) scale(0);
       position: absolute;
-      top: 7px;
-      width: 100%;
-      .a{
-        border: 1px solid #fff;
-        height: 5px;
-        left: 0;
-        position: absolute;
+      left: 4.5px;
+      top: 1.4px;
+      display: table;
+      width: 6px;
+      height: 10px;
+      border: 2px solid #fff;
+      border-top: 0;
+      border-left: 0;
+      content: ' ';
+      transition: all .1s cubic-bezier(.71, -0.46, .88, .6),opacity .1s;
+      opacity: 0;
+    }
+  }
+  &.@{checkbox-prefix-class}-checked {
+    .@{checkbox-prefix-class}-inner {
+      border: 1px solid @primary-color;
+      background: @primary-color;
+      &:after {
+        transform: rotate(45deg) scale(1);
+        transition: all .2s cubic-bezier(.12, .4, .29, 1.46) .1s;
+        opacity: 1;
       }
-      .b{
-        border: 1px solid #fff;
-        left: 0;
-        position: absolute;
-        top: 5px;
-        width: 11px;
+    }
+  }
+  &.@{checkbox-prefix-class}-disabled {
+    .@{checkbox-prefix-class}-inner {
+      border: 1px solid @border-color-base;
+      background: @disable-color;
+      &:after {
+        border-color: @border-color-base;
       }
     }
-  }
-  &.@{button-prefix-class}-checked {
-    border-color: #4285f4;
-    .rect {
-      -webkit-transform: scale(0);
-      transform: scale(0);
-      -webkit-transition: -webkit-transform .1s cubic-bezier(0.4,0,0.2,1);
-      transition: -webkit-transform .1s cubic-bezier(0.4,0,0.2,1);
-      -webkit-transition: transform .1s cubic-bezier(0.4,0,0.2,1);
-      transition: transform .1s cubic-bezier(0.4,0,0.2,1);
-      -webkit-border-radius: 100%;
-      border-radius: 100%;
-    }
-    .check {
-      -webkit-animation: quantumWizPaperAnimateCheckMarkIn .2s .1s forwards;
-      animation: quantumWizPaperAnimateCheckMarkIn .2s .1s forwards;
-      clip: rect(0,20px,20px,20px);
-    }
-  }
-}
-@-webkit-keyframes quantumWizPaperAnimateCheckMarkIn {
-  0% {
-    clip: rect(0,0,20px,0);
-  }
-  100% {
-    clip: rect(0,20px,20px,0);
-  }
-}
-@keyframes quantumWizPaperAnimateCheckMarkIn{
-  0% {
-    clip: rect(0,0,20px,0);
-  }
-  100% {
-    clip: rect(0,20px,20px,0);
-  }
-}
-@-webkit-keyframes quantumWizPaperAnimateCheckMarkOut {
-  0% {
-    clip: rect(0,20px,20px,0);
-  }
-  100% {
-    clip: rect(0,20px,20px,20px);
-  }
-}
-@keyframes quantumWizPaperAnimateCheckMarkOut{
-  0% {
-    clip: rect(0,20px,20px,0);
-  }
-  100% {
-    clip: rect(0,20px,20px,20px);
   }
 }
