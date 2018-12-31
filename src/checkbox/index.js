@@ -23,6 +23,9 @@ export default class Checkbox extends Component {
             this.props.onChange(e);
         }
     };
+    getValue = () => {
+        return this.state.checked;
+    };
     render() {
         const {style, className, prefixClass, ...rest} = this.props;
         const checkboxInput = prefixClass+"-input";
