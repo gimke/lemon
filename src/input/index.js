@@ -14,6 +14,9 @@ export default class Input extends Component {
         }
     }
 
+    componentDidMount () {
+        //console.log(this.label.offsetWidth)
+    }
     componentWillMount() {
         this.checkEmpty(this.props);
     }
@@ -90,13 +93,12 @@ export default class Input extends Component {
 
         const classInner = prefixClass + "-inner";
         const classSize = size ? " " + prefixClass + "-" + size : "";
-        const classLabel = prefixClass + "-label";
         const classBorder = prefixClass + "-border";
         const classAddon = prefixClass + "-addon";
         const labelMoved = !this.state.empty ? " label-moved" : "";
         const focused = this.state.focus ? " focused" : "";
-
-        let classes = prefixClass + classSize + labelMoved + focused;
+        const disabled = this.props.disabled ? " disabled": "";
+        let classes = prefixClass + classSize + labelMoved + focused + disabled;
         if (className) {
             classes += " " + className;
         }
@@ -108,9 +110,6 @@ export default class Input extends Component {
             }
             delete rest.defaultValue;
         }
-        if ("label" in this.props) {
-            delete rest.placeholder;
-        }
         return <span className={classes} style={style}>
             <div className={classInner}>
                 <input
@@ -118,13 +117,10 @@ export default class Input extends Component {
                     onChange={this.onChange}
                     onFocus={this.onFocus}
                     onBlur={this.onBlur}
-                    ref={(input) => {
-                        this.input = input
-                    }}
+                    ref={(input) => this.input = input}
                 />
                 {addon ? <span className={classAddon}>{addon}</span> : null}
                 <div className={classBorder}/>
-                <div className={classLabel}>{this.props.label}</div>
             </div>
         </span>;
     }

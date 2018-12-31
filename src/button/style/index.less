@@ -18,14 +18,14 @@
     background: @border-color-split;
     border: 1px solid @border-color-base;
     box-shadow: none;
-    &:hover, &:active {
+    &:hover, &:focus, &:active {
       color: @text-color-secondary;
       background: @border-color-split;
       border: 1px solid @border-color-base;
       box-shadow: none;
     }
   }
-  &:hover {
+  &:hover, &:focus {
     box-shadow: 0 1px 1px 0 rgba(@border-color-base, 0.5), 0 1px 3px 1px rgba(@border-color-base, 0.4);
   }
   &:active {
@@ -41,14 +41,14 @@
       background: @border-color-split;
       border: 1px solid @border-color-base;
       box-shadow: none;
-      &:hover, &:active {
+      &:hover, &:focus, &:active {
         color: @text-color-secondary;
         background: @border-color-split;
         border: 1px solid @border-color-base;
         box-shadow: none;
       }
     }
-    &:hover {
+    &:hover, &:focus {
       box-shadow: 0 1px 1px 0 rgba(@primary-color,0.5), 0 1px 3px 1px rgba(@primary-color,0.4);
     }
     &:active {
