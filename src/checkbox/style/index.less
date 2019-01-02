@@ -21,7 +21,7 @@
     height: 100%;
     cursor: pointer;
   }
-  .@{checkbox-prefix-class}-input:focus+.@{checkbox-prefix-class}-inner {
+  .@{checkbox-prefix-class}-input:focus + .@{checkbox-prefix-class}-inner {
     border: 1px solid @primary-color;
   }
   .@{checkbox-prefix-class}-inner {
@@ -48,9 +48,6 @@
       content: ' ';
       transform: rotate(45deg);
       opacity: 0;
-      clip: rect(0,20px,20px,0);
-      -webkit-animation: quantumWizPaperAnimateCheckMarkOut .2s forwards;
-      animation: quantumWizPaperAnimateCheckMarkOut .2s forwards;
     }
   }
   &.@{checkbox-prefix-class}-checked {
@@ -60,9 +57,8 @@
       &:after {
         transform: rotate(45deg);
         opacity: 1;
-        clip: rect(0,20px,20px,20px);
-        -webkit-animation: quantumWizPaperAnimateCheckMarkIn .2s .1s forwards;
-        animation: quantumWizPaperAnimateCheckMarkIn .2s .1s forwards;
+        clip-path: inset(0 0 0 0);
+        animation: inset .2s forwards;
       }
     }
   }
@@ -77,35 +73,47 @@
   }
 }
 
+@keyframes inset {
+  0% {
+    clip-path: inset(100% 0 0 0);
+  }
+  100% {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
 @-webkit-keyframes quantumWizPaperAnimateCheckMarkIn {
   0% {
-    clip: rect(0,0,20px,0);
+    clip-path: rect(0 100% 0 0);
   }
   100% {
-    clip: rect(0,20px,20px,0);
+    clip-path: rect(0 0 0 0);
   }
 }
-@keyframes quantumWizPaperAnimateCheckMarkIn{
+
+@keyframes quantumWizPaperAnimateCheckMarkIn {
   0% {
-    clip: rect(0,0,20px,0);
+    clip-path: rect(0 100% 0 0);
   }
   100% {
-    clip: rect(0,20px,20px,0);
+    clip-path: rect(0 0 0 0);
   }
 }
+
 @-webkit-keyframes quantumWizPaperAnimateCheckMarkOut {
   0% {
-    clip: rect(0,20px,20px,0);
+    clip-path: rect(0 0 0 0);
   }
   100% {
-    clip: rect(0,20px,20px,20px);
+    clip-path: rect(0 100% 0 0);
   }
 }
-@keyframes quantumWizPaperAnimateCheckMarkOut{
+
+@keyframes quantumWizPaperAnimateCheckMarkOut {
   0% {
-    clip: rect(0,20px,20px,0);
+    clip-path: rect(0 0 0 0);
   }
   100% {
-    clip: rect(0,20px,20px,20px);
+    clip-path: rect(0 100% 0 0);
   }
 }
