@@ -48,10 +48,9 @@
       content: ' ';
       transform: rotate(45deg);
       opacity: 0;
-      transition: opacity .1s;
+      clip: rect(0,20px,20px,0);
       -webkit-animation: quantumWizPaperAnimateCheckMarkOut .2s forwards;
       animation: quantumWizPaperAnimateCheckMarkOut .2s forwards;
-      clip: rect(0,20px,20px,0);
     }
   }
   &.@{checkbox-prefix-class}-checked {
@@ -59,10 +58,11 @@
       border: 1px solid @primary-color;
       background: @primary-color;
       &:after {
+        transform: rotate(45deg);
+        opacity: 1;
+        clip: rect(0,20px,20px,20px);
         -webkit-animation: quantumWizPaperAnimateCheckMarkIn .2s .1s forwards;
         animation: quantumWizPaperAnimateCheckMarkIn .2s .1s forwards;
-        clip: rect(0,20px,20px,20px);
-        opacity: 1;
       }
     }
   }
