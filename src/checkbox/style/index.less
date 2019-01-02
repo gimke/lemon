@@ -36,9 +36,8 @@
     pointer-events: none;
     transition: all .3s;
     &:after {
-      transform: rotate(45deg) scale(0);
       position: absolute;
-      left: 4.5px;
+      left: 4.4px;
       top: 1.3px;
       display: table;
       width: 6px;
@@ -47,8 +46,12 @@
       border-top: 0;
       border-left: 0;
       content: ' ';
-      transition: all .1s cubic-bezier(.71, -0.46, .88, .6),opacity .1s;
+      transform: rotate(45deg);
       opacity: 0;
+      transition: opacity .1s;
+      -webkit-animation: quantumWizPaperAnimateCheckMarkOut .2s forwards;
+      animation: quantumWizPaperAnimateCheckMarkOut .2s forwards;
+      clip: rect(0,20px,20px,0);
     }
   }
   &.@{checkbox-prefix-class}-checked {
@@ -56,8 +59,9 @@
       border: 1px solid @primary-color;
       background: @primary-color;
       &:after {
-        transform: rotate(45deg) scale(1);
-        transition: all .2s cubic-bezier(.12, .4, .29, 1.46) .1s;
+        -webkit-animation: quantumWizPaperAnimateCheckMarkIn .2s .1s forwards;
+        animation: quantumWizPaperAnimateCheckMarkIn .2s .1s forwards;
+        clip: rect(0,20px,20px,20px);
         opacity: 1;
       }
     }
@@ -70,5 +74,38 @@
         border-color: @border-color-base;
       }
     }
+  }
+}
+
+@-webkit-keyframes quantumWizPaperAnimateCheckMarkIn {
+  0% {
+    clip: rect(0,0,20px,0);
+  }
+  100% {
+    clip: rect(0,20px,20px,0);
+  }
+}
+@keyframes quantumWizPaperAnimateCheckMarkIn{
+  0% {
+    clip: rect(0,0,20px,0);
+  }
+  100% {
+    clip: rect(0,20px,20px,0);
+  }
+}
+@-webkit-keyframes quantumWizPaperAnimateCheckMarkOut {
+  0% {
+    clip: rect(0,20px,20px,0);
+  }
+  100% {
+    clip: rect(0,20px,20px,20px);
+  }
+}
+@keyframes quantumWizPaperAnimateCheckMarkOut{
+  0% {
+    clip: rect(0,20px,20px,0);
+  }
+  100% {
+    clip: rect(0,20px,20px,20px);
   }
 }
