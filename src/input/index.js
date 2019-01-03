@@ -14,9 +14,10 @@ export default class Input extends Component {
         }
     }
 
-    componentDidMount () {
+    componentDidMount() {
         //console.log(this.label.offsetWidth)
     }
+
     componentWillMount() {
         this.checkEmpty(this.props);
     }
@@ -97,7 +98,7 @@ export default class Input extends Component {
         const classAddon = prefixClass + "-addon";
         const labelMoved = !this.state.empty ? " label-moved" : "";
         const focused = this.state.focus ? " focused" : "";
-        const disabled = this.props.disabled ? " disabled": "";
+        const disabled = this.props.disabled ? " disabled" : "";
         let classes = prefixClass + classSize + labelMoved + focused + disabled;
         if (className) {
             classes += " " + className;
@@ -111,17 +112,17 @@ export default class Input extends Component {
             delete rest.defaultValue;
         }
         return <span className={classes} style={style}>
-            <div className={classInner}>
-                <input
-                    {...rest}
-                    onChange={this.onChange}
-                    onFocus={this.onFocus}
-                    onBlur={this.onBlur}
-                    ref={(input) => this.input = input}
-                />
-                {addon ? <span className={classAddon}>{addon}</span> : null}
+                <div className={classInner}>
+                     <input
+                         {...rest}
+                         onChange={this.onChange}
+                         onFocus={this.onFocus}
+                         onBlur={this.onBlur}
+                         ref={(input) => this.input = input}
+                     />
+                    {addon ? <span className={classAddon}>{addon}</span> : null}
+                </div>
                 <div className={classBorder}/>
-            </div>
         </span>;
     }
 }

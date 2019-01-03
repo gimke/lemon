@@ -15,20 +15,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    .@{input-prefix-class}-border {
-      margin: 0;
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      border-radius: 4px;
-      user-select: none;
-      pointer-events: none;
-      border: 1px solid @border-color-base;
-      transition: border 150ms ease-in,padding-left 150ms ease-in;
-      box-sizing: content-box;
-    }
     .@{input-prefix-class}-addon {
       vertical-align: middle;
       font-size: 14px;
@@ -50,27 +36,36 @@
       min-width: 0;
     }
   }
+  .@{input-prefix-class}-border {
+    margin: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 4px;
+    user-select: none;
+    pointer-events: none;
+    border: 1px solid @border-color-base;
+    transition: border 150ms ease-in,padding-left 150ms ease-in;
+    box-sizing: content-box;
+  }
   &.focused {
-    .@{input-prefix-class}-inner {
-      .@{input-prefix-class}-border {
-        border: 2px solid @primary-color;
-      }
+    .@{input-prefix-class}-border {
+      border: 2px solid @primary-color;
     }
   }
   &.disabled {
     .@{input-prefix-class}-inner {
-      .@{input-prefix-class}-label {
-        color: @border-color-base;
-      }
-      .@{input-prefix-class}-border {
-        border: 1px solid @border-color-base;
-      }
       input {
         color: @border-color-base;
       }
       .@{input-prefix-class}-addon {
         color: @border-color-base;
       }
+    }
+    .@{input-prefix-class}-border {
+      border: 1px solid @border-color-base;
     }
   }
   &.@{input-prefix-class}-large {
@@ -83,13 +78,6 @@
         font-size: 16px;
         height: 16px;
         line-height: 18px;
-      }
-    }
-    &.focused {
-      .@{input-prefix-class}-inner {
-        .@{input-prefix-class}-label {
-          transform:scale(.75) translateY(-34px);
-        }
       }
     }
   }
@@ -105,22 +93,13 @@
         line-height: 14px;
       }
     }
-    &.focused {
-      .@{input-prefix-class}-inner {
-        .@{input-prefix-class}-label {
-          transform:scale(.75) translateY(-24px);
-        }
-      }
-    }
   }
 }
 
 .has-error {
   .@{input-prefix-class} {
-    .@{input-prefix-class}-inner {
-      .@{input-prefix-class}-border {
-        border:2px solid @error-color;
-      }
+    .@{input-prefix-class}-border {
+      border:2px solid @error-color;
     }
   }
 }
