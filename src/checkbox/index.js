@@ -12,24 +12,33 @@ export default class Checkbox extends Component {
             checked: props.defaultChecked || props.checked
         }
     }
+
     static defaultProps = {
         prefixClass: "lemon-checkbox",
     };
-    onChange = (e) => {
-        if(this.props.checked === undefined) {
-            this.setState({checked:e.target.checked});
+
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.checked !== this.props.checked) {
+            this.setState({checked: nextProps.checked});
         }
-        if(this.props.onChange) {
+    }
+
+    onChange = (e) => {
+        if (this.props.checked === undefined) {
+            this.setState({checked: e.target.checked});
+        }
+        if (this.props.onChange) {
             this.props.onChange(e);
         }
     };
     getValue = () => {
         return this.state.checked;
     };
+
     render() {
-        const {style, className, prefixClass,children, ...rest} = this.props;
-        const checkboxInput = prefixClass+"-input";
-        const checkboxInner = prefixClass+"-inner";
+        const {style, className, prefixClass, children, ...rest} = this.props;
+        const checkboxInput = prefixClass + "-input";
+        const checkboxInner = prefixClass + "-inner";
 
         let classes = prefixClass;
         if (className) {
@@ -41,12 +50,12 @@ export default class Checkbox extends Component {
         if (this.props.disabled) {
             classes += " " + prefixClass + "-disabled";
         }
-        return <label className={prefixClass+"-wrapper"}>
+        return <label className={prefixClass + "-wrapper"}>
             <span
                 className={classes}
                 style={style}>
-                <input {...rest} onChange={this.onChange} type="checkbox" className={checkboxInput} />
-                <span className={checkboxInner} />
+                <input {...rest} onChange={this.onChange} type="checkbox" className={checkboxInput}/>
+                <span className={checkboxInner}/>
             </span>
             <span>{children}</span>
         </label>;

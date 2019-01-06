@@ -3,7 +3,7 @@
  */
 import React, {Component} from "react";
 
-export default class FormGroup extends Component {
+export default class Group extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -12,7 +12,7 @@ export default class FormGroup extends Component {
     }
 
     static defaultProps = {
-        prefixClass: "lemon-form-group",
+        prefixClass: "lemon-group",
     };
 
     componentWillReceiveProps(nextProps) {
@@ -25,6 +25,11 @@ export default class FormGroup extends Component {
         return this.state.value;
     };
 
+    onChange = (value) => {
+        if (this.props.onChange) {
+            this.props.onChange(value);
+        }
+    };
     renderChildren = (children) => {
         if (Array.isArray(children)) {
             return children.map((child, index) => {
@@ -42,6 +47,8 @@ export default class FormGroup extends Component {
                         }
                         if (!('value' in this.props)) {
                             this.setState({value});
+                        } else {
+                            this.onChange(value);
                         }
                         if (child.props.onChange) {
                             child.props.onChange(e)
@@ -65,6 +72,8 @@ export default class FormGroup extends Component {
                     }
                     if (!('value' in this.props)) {
                         this.setState({value});
+                    } else {
+                        this.onChange(value);
                     }
                     if (child.props.onChange) {
                         child.props.onChange(e)
@@ -75,7 +84,7 @@ export default class FormGroup extends Component {
     };
 
     render() {
-        const {style, className, prefixClass, children, ...rest} = this.props;
+        const {style, className, prefixClass, onChange, children, ...rest} = this.props;
         let classes = prefixClass;
         if (className) {
             classes += " " + className;
