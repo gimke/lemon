@@ -28,8 +28,10 @@
       padding-right: 8px;
       vertical-align: middle;
     }
-    .@{checkbox-prefix-class}-input:focus + .@{checkbox-prefix-class}-inner {
-      border: 1px solid @primary-color;
+    .@{checkbox-prefix-class}-input:focus {
+      &+.@{checkbox-prefix-class}-inner {
+        border: 1px solid @primary-color;
+      }
     }
     .@{checkbox-prefix-class}-inner {
       width: 16px;
