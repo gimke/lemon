@@ -27,7 +27,7 @@ export default class Checkbox extends Component {
         return this.state.checked;
     };
     render() {
-        const {style, className, prefixClass, ...rest} = this.props;
+        const {style, className, prefixClass,children, ...rest} = this.props;
         const checkboxInput = prefixClass+"-input";
         const checkboxInner = prefixClass+"-inner";
 
@@ -41,12 +41,14 @@ export default class Checkbox extends Component {
         if (this.props.disabled) {
             classes += " " + prefixClass + "-disabled";
         }
-        return <span
-                    className={classes}
-                    style={style}
-        >
-            <input {...rest} onChange={this.onChange} type="checkbox" className={checkboxInput} />
-            <span className={checkboxInner} />
-        </span>;
+        return <label className={prefixClass+"-wrapper"}>
+            <span
+                className={classes}
+                style={style}>
+                <input {...rest} onChange={this.onChange} type="checkbox" className={checkboxInput} />
+                <span className={checkboxInner} />
+            </span>
+            <span>{children}</span>
+        </label>;
     }
 }

@@ -4,6 +4,7 @@
  */
 import React, {Component} from "react";
 import FormItem from "./formitem";
+import FormGroup from "./formgroup";
 import FormContext from "./formcontext";
 
 // class form {
@@ -34,6 +35,7 @@ export default class Form extends Component {
         this.items[name] = element;
     };
     static Item = FormItem;
+    static Group = FormGroup;
 
     // static with = (component) => {
     //     return () => {
