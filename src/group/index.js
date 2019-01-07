@@ -30,57 +30,47 @@ export default class Group extends Component {
             this.props.onChange(value);
         }
     };
-    renderChildren = (children) => {
-        if (Array.isArray(children)) {
-            return children.map((child, index) => {
-                return <child.type
-                    key={child.props.value}
-                    {...child.props}
-                    checked={this.state.value.indexOf(child.props.value) !== -1}
-                    onChange={(e) => {
-                        const optionIndex = this.state.value.indexOf(e.target.value);
-                        const value = [...this.state.value];
-                        if (optionIndex === -1) {
-                            value.push(e.target.value);
-                        } else {
-                            value.splice(optionIndex, 1);
-                        }
-                        if (!('value' in this.props)) {
-                            this.setState({value});
-                        } else {
-                            this.onChange(value);
-                        }
-                        if (child.props.onChange) {
-                            child.props.onChange(e)
-                        }
-                    }}
-                />
-            })
+    childOnChange = (e, child) => {
+        const optionIndex = this.state.value.indexOf(e.target.value);
+        let value = [...this.state.value];
+        let multiValue = true;
+        switch (child.type.name) {
+            case "Radiobox":
+                multiValue = false;
+                break;
+        }
+        if (optionIndex === -1) {
+            if (multiValue) {
+                value.push(e.target.value);
+            } else {
+                value = [e.target.value];
+            }
         } else {
-            let child = children;
+            if (multiValue) {
+                value.splice(optionIndex, 1);
+            }
+        }
+        if (!('value' in this.props)) {
+            this.setState({value});
+        } else {
+            this.onChange(value);
+        }
+        if (child.props.onChange) {
+            child.props.onChange(e)
+        }
+    };
+    renderChildren = (children) => {
+        let items = React.Children.toArray(children);
+        return items.map((child, index) => {
             return <child.type
                 key={child.props.value}
                 {...child.props}
                 checked={this.state.value.indexOf(child.props.value) !== -1}
                 onChange={(e) => {
-                    const optionIndex = this.state.value.indexOf(e.target.value);
-                    const value = [...this.state.value];
-                    if (optionIndex === -1) {
-                        value.push(e.target.value);
-                    } else {
-                        value.splice(optionIndex, 1);
-                    }
-                    if (!('value' in this.props)) {
-                        this.setState({value});
-                    } else {
-                        this.onChange(value);
-                    }
-                    if (child.props.onChange) {
-                        child.props.onChange(e)
-                    }
+                    this.childOnChange(e, child);
                 }}
-            />;
-        }
+            />
+        });
     };
 
     render() {
@@ -89,8 +79,8 @@ export default class Group extends Component {
         if (className) {
             classes += " " + className;
         }
-        return <div {...rest} className={classes} style={style}>
+        return <span {...rest} className={classes} style={style}>
             {this.renderChildren(children)}
-        </div>
+        </span>
     }
 }

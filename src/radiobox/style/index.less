@@ -1,10 +1,10 @@
 @import "../../style/base";
 
-@checkbox-prefix-class: lemon-checkbox;
+@radiobox-prefix-class: lemon-radiobox;
 
-.@{checkbox-prefix-class}-wrapper {
+.@{radiobox-prefix-class}-wrapper {
   cursor: pointer;
-  .@{checkbox-prefix-class} {
+  .@{radiobox-prefix-class} {
     outline: none;
     overflow: visible;
     position: relative;
@@ -28,12 +28,12 @@
       padding-right: 8px;
       vertical-align: middle;
     }
-    .@{checkbox-prefix-class}-input:focus {
-      &+.@{checkbox-prefix-class}-inner {
+    .@{radiobox-prefix-class}-input:focus {
+      &+.@{radiobox-prefix-class}-inner {
         border: 1px solid @primary-color;
       }
     }
-    .@{checkbox-prefix-class}-inner {
+    .@{radiobox-prefix-class}-inner {
       width: 16px;
       height: 16px;
       border: 1px solid @border-color-base;
@@ -41,7 +41,7 @@
       position: relative;
       top: 0;
       left: 0;
-      border-radius: 2px;
+      border-radius: 8px;
       pointer-events: none;
       transition: all .1s;
       &:after {
@@ -59,8 +59,8 @@
         opacity: 0;
       }
     }
-    &.@{checkbox-prefix-class}-checked {
-      .@{checkbox-prefix-class}-inner {
+    &.@{radiobox-prefix-class}-checked {
+      .@{radiobox-prefix-class}-inner {
         border: 1px solid @primary-color;
         background: @primary-color;
         &:after {
@@ -71,8 +71,8 @@
         }
       }
     }
-    &.@{checkbox-prefix-class}-disabled {
-      .@{checkbox-prefix-class}-inner {
+    &.@{radiobox-prefix-class}-disabled {
+      .@{radiobox-prefix-class}-inner {
         border: 1px solid @border-color-base;
         background: @disable-color;
         &:after {
