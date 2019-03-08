@@ -7,25 +7,6 @@ import FormItem from "./formitem";
 import FormGroup from "./formgroup";
 import FormContext from "./formcontext";
 
-// class form {
-//     items = {};
-//     item = (name, component) => {
-//         return <component.type {...component.props} ref={(input) => {
-//             if (!this.items[name]) {
-//                 this.items[name] = input;
-//             }
-//         }}/>
-//     };
-//     validateFields = (cb) => {
-//         let values = {};
-//         Object.keys(this.items).map((key) => {
-//             let component = this.items[key];
-//             values[key] = component.value;
-//         });
-//         cb(null, values);
-//     }
-// }
-
 export default class Form extends Component {
     constructor(props) {
         super(props);
@@ -37,11 +18,6 @@ export default class Form extends Component {
     static Item = FormItem;
     static Group = FormGroup;
 
-    // static with = (component) => {
-    //     return () => {
-    //         return React.createElement(component, {form: new form()});
-    //     }
-    // }
     onSubmit = (e) => {
         if(this.props.onSubmit) {
             let values = {};
