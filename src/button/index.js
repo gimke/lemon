@@ -8,6 +8,9 @@ import PropTypes from "prop-types";
 
 export default class Button extends Component {
 
+    state = {
+        clicked:false
+    };
     static propTypes = {
         type: PropTypes.string,
         size: PropTypes.oneOf(['large', 'default', 'small']),
@@ -18,7 +21,15 @@ export default class Button extends Component {
         prefixClass: "lemon-button",
         type: "default",
     };
-
+    handleClick = (e) => {
+        this.setState({clicked:true});
+        setTimeout(() => {
+            this.setState({clicked:false});
+        },200);
+        if(this.props.onClick) {
+            this.props.onClick(e);
+        }
+    };
     render() {
         const {style, htmlType, type, size, className, prefixClass, ...rest} = this.props;
         let classes = prefixClass;
@@ -31,8 +42,12 @@ export default class Button extends Component {
         if (type) {
             classes += " " + prefixClass + "-" + type;
         }
+        if (this.state.clicked) {
+            classes += " clicked";
+        }
         return <button
             {...rest}
+            onClick={this.handleClick}
             type={htmlType || 'button'}
             className={classes}
             style={style}>
