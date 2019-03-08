@@ -1,6 +1,6 @@
 import React from "react";
 
-import Button from "../src/button"
+import {Button} from "../src"
 import "../src/button/style"
 
 import "../src/input/style"
