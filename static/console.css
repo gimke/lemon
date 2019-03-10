@@ -1,0 +1,195 @@
+input::-webkit-input-placeholder {
+  color: #969ca4;
+}
+input:-ms-input-placeholder {
+  color: #969ca4;
+}
+input::-ms-input-placeholder {
+  color: #969ca4;
+}
+input::placeholder {
+  color: #969ca4;
+}
+input::-webkit-input-placeholder {
+  color: #969ca4;
+}
+input:-moz-placeholder {
+  color: #969ca4;
+}
+input::-moz-placeholder {
+  color: #969ca4;
+}
+input:-ms-input-placeholder {
+  color: #969ca4;
+}
+
+.lemon-button {
+  cursor: pointer;
+  vertical-align: middle;
+  border-radius: 4px;
+  padding: 0 24px;
+  height: 34px;
+  outline: none;
+  background: #FFF;
+  font-size: 14px;
+  color: #5f6368;
+  border: 1px solid #dadce0;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, border 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+.lemon-button[disabled] {
+  color: #969ca4;
+  background: #e5e7eb;
+  border: 1px solid #dadce0;
+  box-shadow: none;
+}
+.lemon-button[disabled]:hover,
+.lemon-button[disabled]:focus,
+.lemon-button[disabled]:active {
+  color: #969ca4;
+  background: #e5e7eb;
+  border: 1px solid #dadce0;
+  box-shadow: none;
+}
+.lemon-button:hover,
+.lemon-button:focus {
+  box-shadow: 0 1px 1px 0 rgba(218, 220, 224, 0.5), 0 1px 3px 1px rgba(218, 220, 224, 0.4);
+}
+.lemon-button:active,
+.lemon-button.clicked {
+  border: 1px solid #dadce0;
+  box-shadow: 0 1px 1px 0 rgba(218, 220, 224, 0.5), 0 1px 4px 2px rgba(218, 220, 224, 0.4);
+}
+.lemon-button.lemon-button-primary {
+  border: none;
+  background: #1a73e8;
+  color: #FFF;
+}
+.lemon-button.lemon-button-primary[disabled] {
+  color: #969ca4;
+  background: #e5e7eb;
+  border: 1px solid #dadce0;
+  box-shadow: none;
+}
+.lemon-button.lemon-button-primary[disabled]:hover,
+.lemon-button.lemon-button-primary[disabled]:focus,
+.lemon-button.lemon-button-primary[disabled]:active {
+  color: #969ca4;
+  background: #e5e7eb;
+  border: 1px solid #dadce0;
+  box-shadow: none;
+}
+.lemon-button.lemon-button-primary:hover,
+.lemon-button.lemon-button-primary:focus {
+  box-shadow: 0 1px 1px 0 rgba(26, 115, 232, 0.5), 0 1px 3px 1px rgba(26, 115, 232, 0.4);
+}
+.lemon-button.lemon-button-primary:active,
+.lemon-button.lemon-button-primary.clicked {
+  background: #1461c5;
+  box-shadow: 0 1px 1px 0 rgba(20, 97, 197, 0.5), 0 1px 4px 2px rgba(20, 97, 197, 0.4);
+}
+.lemon-button.lemon-button-large {
+  height: 40px;
+  font-size: 16px;
+}
+.lemon-button.lemon-button-small {
+  height: 28px;
+  font-size: 12px;
+}
+
+.lemon-input {
+  vertical-align: middle;
+  padding: 0;
+  display: inline-block;
+  position: relative;
+}
+.lemon-input .lemon-input-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.lemon-input .lemon-input-inner .lemon-input-addon {
+  vertical-align: middle;
+  font-size: 14px;
+  padding: 0 8px;
+  color: #5f6368;
+}
+.lemon-input .lemon-input-inner input {
+  position: relative;
+  box-sizing: content-box;
+  padding: 10px 14px;
+  outline: none;
+  border: none;
+  font-size: 14px;
+  height: 14px;
+  line-height: 16px;
+  background: transparent;
+  color: #5f6368;
+  flex: auto;
+  min-width: 0;
+}
+.lemon-input .lemon-input-border {
+  margin: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 4px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  pointer-events: none;
+  border: 1px solid #dadce0;
+  transition: border 150ms ease-in, padding-left 150ms ease-in;
+  box-sizing: content-box;
+}
+.lemon-input.focused .lemon-input-border {
+  border: 2px solid #1a73e8;
+}
+.lemon-input.disabled .lemon-input-inner input {
+  color: #dadce0;
+}
+.lemon-input.disabled .lemon-input-inner input::-webkit-input-placeholder {
+  color: #dadce0;
+}
+.lemon-input.disabled .lemon-input-inner input:-ms-input-placeholder {
+  color: #dadce0;
+}
+.lemon-input.disabled .lemon-input-inner input::-ms-input-placeholder {
+  color: #dadce0;
+}
+.lemon-input.disabled .lemon-input-inner input::placeholder {
+  color: #dadce0;
+}
+.lemon-input.disabled .lemon-input-inner .lemon-input-addon {
+  color: #dadce0;
+}
+.lemon-input.disabled .lemon-input-border {
+  border: 1px solid #dadce0;
+}
+.lemon-input.lemon-input-large .lemon-input-inner .lemon-input-addon {
+  font-size: 16px;
+}
+.lemon-input.lemon-input-large .lemon-input-inner input {
+  padding: 12px 14px;
+  font-size: 16px;
+  height: 16px;
+  line-height: 18px;
+}
+.lemon-input.lemon-input-small .lemon-input-inner .lemon-input-addon {
+  font-size: 12px;
+}
+.lemon-input.lemon-input-small .lemon-input-inner input {
+  padding: 8px 14px;
+  font-size: 12px;
+  height: 12px;
+  line-height: 14px;
+}
+.has-error .lemon-input .lemon-input-border {
+  border: 2px solid #d50000;
+}
+

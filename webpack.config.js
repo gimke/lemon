@@ -19,7 +19,7 @@ const postcssLoader = {
         plugins: (loader) => [
             postcssImport(),
             postcssCustomProperties({
-                importFrom: './pages/config/var.css',
+                importFrom: './site/config/var.css',
                 preserve: false
             }),
             postcssColor(),
@@ -49,10 +49,10 @@ const babelLoader = {
 module.exports = {
     mode: env,
     entry: {
-        console: './pages/main.js'
+        console: './site/main.js'
     },
     output: {
-        path: path.resolve(__dirname, './static/dist'),
+        path: path.resolve(__dirname, './static'),
         filename: filename + '.js',
         publicPath: publicPath
     },
@@ -63,7 +63,7 @@ module.exports = {
     // },
     externals: {
         config: function () {
-            return JSON.stringify(require('./pages/config/' + env + '.json'));
+            return JSON.stringify(require('./site/config/' + env + '.json'));
         }(),
     },
     optimization: {
@@ -82,7 +82,7 @@ module.exports = {
             hash: false,
             inject: false,
             filename: 'console.html',
-            template: './pages/index.html'
+            template: './site/index.html'
         }),
         new MiniCssExtractPlugin({
             filename: filename + '.css',
