@@ -14,6 +14,7 @@
     "clean:umd": "rimraf dist",
     "clean:es": "rimraf es",
     "watch": "cross-env NODE_ENV=development webpack --config webpack.config.js -w",
+    "build:product": "cross-env NODE_ENV=production webpack --config webpack.config.js --hide-modules --progress",
     "build:commonjs": "babel src/ --out-dir lib/ --plugins @babel/plugin-transform-modules-commonjs --copy-files --ignore **/__tests__,**/__mocks__",
     "build:es": "babel src/ --out-dir es/ --copy-files --ignore **/__tests__,**/__mocks__",
     "build": "npm-run-all clean:* --parallel build:*"

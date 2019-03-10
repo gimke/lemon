@@ -4,10 +4,15 @@
 import React from "react";
 
 import ButtonTypes from "./types"
+import ButtonSize from "./size"
+import ButtonDisabled from "./disabled"
+
 import "./index.css"
 
 export default () => {
     return <div className="buttons">
-        <ButtonTypes />
+        <ButtonTypes/>
+        <ButtonSize/>
+        <ButtonDisabled/>
     </div>
 }
