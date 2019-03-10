@@ -71,6 +71,62 @@
 .side .nav-menu.ml-auto {
       margin-left: auto;
     }
+input::-webkit-input-placeholder {
+  color: #969ca4;
+}
+input:-ms-input-placeholder {
+  color: #969ca4;
+}
+input::-ms-input-placeholder {
+  color: #969ca4;
+}
+input::placeholder {
+  color: #969ca4;
+}
+input::-webkit-input-placeholder {
+  color: #969ca4;
+}
+input:-moz-placeholder {
+  color: #969ca4;
+}
+input::-moz-placeholder {
+  color: #969ca4;
+}
+input:-ms-input-placeholder {
+  color: #969ca4;
+}
+
+.lemon-menu {
+  line-height: 46px;
+}
+.lemon-menu.lemon-menu-horizontal .lemon-menu-item {
+  display: inline-block;
+}
+.lemon-menu.lemon-menu-horizontal .lemon-menu-item > * {
+  display: inline-block;
+  padding: 0 20px;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.2s ease-out;
+}
+.lemon-menu.lemon-menu-horizontal .lemon-menu-item > *.active,
+.lemon-menu.lemon-menu-horizontal .lemon-menu-item > *:hover {
+  border-bottom: 2px solid #1a73e8;
+}
+.lemon-menu.lemon-menu-vertical .lemon-menu-item {
+  display: block;
+}
+.lemon-menu.lemon-menu-vertical .lemon-menu-item > * {
+  display: block;
+  padding: 0 20px;
+  border-right: 3px solid transparent;
+  transition: border-color 0.2s ease-out, background-color 0.2s ease-out;
+}
+.lemon-menu.lemon-menu-vertical .lemon-menu-item > *.active,
+.lemon-menu.lemon-menu-vertical .lemon-menu-item > *:hover {
+  background: #d3e4fb;
+  border-right: 3px solid #1a73e8;
+}
+
 html, body {
   height: auto;
   width: auto;
@@ -115,38 +171,44 @@ svg {
   display: flex
 }
 
-.main-wrapper .side {
+.main-wrapper .lemon-menu {
     width: 240px;
+    border-right: 1px solid #eee;
   }
 
 .main-wrapper .content {
-    padding-left: 24px;
+    flex: auto;
+    padding: 0 24px;
   }
-input::-webkit-input-placeholder {
-  color: #969ca4;
-}
-input:-ms-input-placeholder {
-  color: #969ca4;
-}
-input::-ms-input-placeholder {
-  color: #969ca4;
-}
-input::placeholder {
-  color: #969ca4;
-}
-input::-webkit-input-placeholder {
-  color: #969ca4;
-}
-input:-moz-placeholder {
-  color: #969ca4;
-}
-input::-moz-placeholder {
-  color: #969ca4;
-}
-input:-ms-input-placeholder {
-  color: #969ca4;
+
+.markdown {
+  margin-top: 24px
 }
 
+.markdown blockquote {
+    padding: 20px 45px 20px 26px;
+    background-color: rgba(255,229,100,0.3);
+    border-left: 8px #ffe564 solid;
+    margin-top: 24px;
+    margin-bottom: 24px;
+  }
+
+.markdown ul {
+    margin-left: 24px;
+    list-style: disc;
+  }
+
+.markdown pre,.markdown code {
+    font-family: source-code-pro,Menlo,Monaco,Consolas,Courier New,monospace;
+    font-size: 14px;
+    margin-top: 24px;
+    margin-bottom: 24px;
+  }
+
+.markdown p > code {
+    padding: 0 3px;
+    background: rgba(255,229,100,0.2);
+  }
 .lemon-button {
   cursor: pointer;
   vertical-align: middle;
@@ -220,3 +282,7 @@ input:-ms-input-placeholder {
   font-size: 12px;
 }
 
+
+  .buttons .lemon-button {
+    margin-right: 8px;
+  }

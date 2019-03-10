@@ -1,0 +1,5 @@
+.buttons {
+  & .lemon-button {
+    margin-right: 8px;
+  }
+}

@@ -8,21 +8,24 @@ import ReactMarkdown from "react-markdown"
 import CodeBlock from "../../components/codeblock"
 
 const input = `
+> type: \`primary\`,\`default\`
+
+
 \`\`\`javascript
 import React from "react";
-import {Button} from "../../../src";
-import "../../../src/button/style";
+import {Button} from "lemon-ui";
 
 export default () => <div>
     <Button type="primary">primary</Button>
-    <Button type="normal">normal</Button>
+    <Button>default</Button>
 </div>
 \`\`\`
 `;
 
 export default () => <div>
     <Button type="primary">primary</Button>
-    <Button type="normal">normal</Button>
-    <ReactMarkdown source={input} renderers={{code: CodeBlock}}
-    />
+    <Button>default</Button>
+    <div className="markdown">
+        <ReactMarkdown source={input} renderers={{code: CodeBlock}} />
+    </div>
 </div>

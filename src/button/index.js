@@ -12,7 +12,7 @@ export default class Button extends Component {
         clicked:false
     };
     static propTypes = {
-        type: PropTypes.string,
+        type: PropTypes.oneOf(['primary', 'default']),
         size: PropTypes.oneOf(['large', 'default', 'small']),
         htmlType: PropTypes.oneOf(['submit', 'button', 'reset']),
     };

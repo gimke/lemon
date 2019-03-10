@@ -3,5 +3,34 @@
 @menu-prefix-class: lemon-menu;
 
 .@{menu-prefix-class} {
-
+  line-height: 46px;
+  &.@{menu-prefix-class}-horizontal {
+    & .@{menu-prefix-class}-item {
+      display: inline-block;
+      & > * {
+        display: inline-block;
+        padding: 0 20px;
+        border-bottom: 2px solid transparent;
+        transition: border-color .2s ease-out;
+        &.active, &:hover {
+          border-bottom: 2px solid @primary-color;
+        }
+      }
+    }
+  }
+  &.@{menu-prefix-class}-vertical {
+    & .@{menu-prefix-class}-item {
+      display: block;
+      & > * {
+        display: block;
+        padding: 0 20px;
+        border-right: 3px solid transparent;
+        transition: border-color .2s ease-out, background-color .2s ease-out;;
+        &.active, &:hover {
+          background: @primary-1;
+          border-right: 3px solid @primary-color;
+        }
+      }
+    }
+  }
 }

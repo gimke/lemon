@@ -4,9 +4,10 @@
 import React from "react";
 
 import ButtonTypes from "./types"
+import "./index.css"
 
 export default () => {
-    return <div>
+    return <div className="buttons">
         <ButtonTypes />
     </div>
 }
