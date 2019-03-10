@@ -10,8 +10,8 @@ const postcssColor = require('postcss-color-function');
 const postcssCustomProperties = require('postcss-custom-properties');
 
 const env = process.env.NODE_ENV || 'development';
-const filename = env === 'development' ? '[name]' : '[hash]/[name]';
-const publicPath = env === 'development' ? '' : '/static/dist/';
+const filename = env === 'development' ? '[name]' : '[name]';
+const publicPath = env === 'development' ? '' : '';
 const postcssLoader = {
     loader: 'postcss-loader',
     options: {
@@ -40,7 +40,6 @@ const babelLoader = {
         plugins: [
             '@babel/plugin-proposal-class-properties',
             '@babel/plugin-syntax-dynamic-import',
-            ['import', {libraryName: 'antd', style: true}, "antd"],
             ['import', {libraryName: 'lemon-ui', style: true}, "lemon-ui"],
         ]
     }
