@@ -35,3 +35,15 @@ ul {
 svg {
   display: flex;
 }
+
+.main-wrapper {
+  position: relative;
+  padding-top: 24px;
+  display: flex;
+  & .side {
+    width: 240px;
+  }
+  & .content {
+    padding-left: 24px;
+  }
+}

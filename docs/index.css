@@ -1,125 +1,3 @@
-input::-webkit-input-placeholder {
-  color: #969ca4;
-}
-input:-ms-input-placeholder {
-  color: #969ca4;
-}
-input::-ms-input-placeholder {
-  color: #969ca4;
-}
-input::placeholder {
-  color: #969ca4;
-}
-input::-webkit-input-placeholder {
-  color: #969ca4;
-}
-input:-moz-placeholder {
-  color: #969ca4;
-}
-input::-moz-placeholder {
-  color: #969ca4;
-}
-input:-ms-input-placeholder {
-  color: #969ca4;
-}
-
-.lemon-input {
-  vertical-align: middle;
-  padding: 0;
-  display: inline-block;
-  position: relative;
-}
-.lemon-input .lemon-input-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.lemon-input .lemon-input-inner .lemon-input-addon {
-  vertical-align: middle;
-  font-size: 14px;
-  padding: 0 8px;
-  color: #5f6368;
-}
-.lemon-input .lemon-input-inner input {
-  position: relative;
-  box-sizing: content-box;
-  padding: 10px 14px;
-  outline: none;
-  border: none;
-  font-size: 14px;
-  height: 14px;
-  line-height: 16px;
-  background: transparent;
-  color: #5f6368;
-  flex: auto;
-  min-width: 0;
-}
-.lemon-input .lemon-input-border {
-  margin: 0;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  border-radius: 4px;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
-  pointer-events: none;
-  border: 1px solid #dadce0;
-  transition: border 150ms ease-in, padding-left 150ms ease-in;
-  box-sizing: content-box;
-}
-.lemon-input.focused .lemon-input-border {
-  border: 2px solid #1a73e8;
-}
-.lemon-input.disabled .lemon-input-inner input {
-  color: #dadce0;
-}
-.lemon-input.disabled .lemon-input-inner input::-webkit-input-placeholder {
-  color: #dadce0;
-}
-.lemon-input.disabled .lemon-input-inner input:-ms-input-placeholder {
-  color: #dadce0;
-}
-.lemon-input.disabled .lemon-input-inner input::-ms-input-placeholder {
-  color: #dadce0;
-}
-.lemon-input.disabled .lemon-input-inner input::placeholder {
-  color: #dadce0;
-}
-.lemon-input.disabled .lemon-input-inner .lemon-input-addon {
-  color: #dadce0;
-}
-.lemon-input.disabled .lemon-input-border {
-  border: 1px solid #dadce0;
-}
-.lemon-input.lemon-input-large .lemon-input-inner .lemon-input-addon {
-  font-size: 16px;
-}
-.lemon-input.lemon-input-large .lemon-input-inner input {
-  padding: 12px 14px;
-  font-size: 16px;
-  height: 16px;
-  line-height: 18px;
-}
-.lemon-input.lemon-input-small .lemon-input-inner .lemon-input-addon {
-  font-size: 12px;
-}
-.lemon-input.lemon-input-small .lemon-input-inner input {
-  padding: 8px 14px;
-  font-size: 12px;
-  height: 12px;
-  line-height: 14px;
-}
-.has-error .lemon-input .lemon-input-border {
-  border: 2px solid #d50000;
-}
-
 .header {
   display: flex;
   height: 64px;
@@ -162,6 +40,37 @@ input:-ms-input-placeholder {
 .header .nav-menu.ml-auto {
       margin-left: auto;
     }
+
+  .side .nav-menu {
+    list-style: none;
+    display: flex;
+    flex-direction: column
+  }
+.side .nav-menu > li {
+      height: 32px;
+      display: flex;
+      align-items: center
+    }
+.side .nav-menu > li a {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        padding: 0 16px;
+        font-size: 14px;
+        transition: all .2s ease-out
+      }
+.side .nav-menu > li a.nav-link.active {
+            background: #408cea;
+            color: #FFFFFF;
+          }
+.side .nav-menu > li a.nav-icon .nav-svg {
+            width: 16px;
+            height: 16px;
+          }
+.side .nav-menu.ml-auto {
+      margin-left: auto;
+    }
 html, body {
   height: auto;
   width: auto;
@@ -199,6 +108,45 @@ ul {
 svg {
   display: flex;
 }
+
+.main-wrapper {
+  position: relative;
+  padding-top: 24px;
+  display: flex
+}
+
+.main-wrapper .side {
+    width: 240px;
+  }
+
+.main-wrapper .content {
+    padding-left: 24px;
+  }
+input::-webkit-input-placeholder {
+  color: #969ca4;
+}
+input:-ms-input-placeholder {
+  color: #969ca4;
+}
+input::-ms-input-placeholder {
+  color: #969ca4;
+}
+input::placeholder {
+  color: #969ca4;
+}
+input::-webkit-input-placeholder {
+  color: #969ca4;
+}
+input:-moz-placeholder {
+  color: #969ca4;
+}
+input::-moz-placeholder {
+  color: #969ca4;
+}
+input:-ms-input-placeholder {
+  color: #969ca4;
+}
+
 .lemon-button {
   cursor: pointer;
   vertical-align: middle;

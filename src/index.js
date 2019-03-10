@@ -8,3 +8,4 @@ export { default as Form } from './form';
 export { default as Checkbox } from './checkbox';
 export { default as Radiobox } from './radiobox';
 export { default as Group } from './group';
+export { default as Menu } from './menu';

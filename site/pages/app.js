@@ -1,25 +1,29 @@
 import React from "react";
 
-import "../../src/input/style"
-import Input from "../../src/input"
+import TopMenu from "../components/topmenu";
+import SideMenu from "../components/sidemenu";
+import {Menu} from "../../src";
+import "./app.css";
 
-import TopMenu from "../components/topmenu"
-import "./app.css"
+import Buttons from "./buttons";
 
-import Buttons from "./buttons"
+class App extends React.PureComponent {
 
-class App extends React.PureComponent{
-
-    constructor(props){
+    constructor(props) {
         super(props);
     }
 
     render() {
-        return <div>
+        return <React.Fragment>
             <TopMenu />
-            <Buttons />
-            <Input defaultValue="AAA"/>
-        </div>
+            <Menu />
+            <div className="main-wrapper">
+                <SideMenu />
+                <div className="content">
+                    <Buttons />
+                </div>
+            </div>
+        </React.Fragment>
     }
 }
 
