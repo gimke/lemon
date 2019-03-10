@@ -6,6 +6,8 @@
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
     <title><%= htmlWebpackPlugin.options.title %></title><% for (var css in htmlWebpackPlugin.files.css) { %>
     <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.25.2/theme/monokai.min.css" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/github.min.css" />
     <link href="<%=htmlWebpackPlugin.files.css[css] %>" rel="stylesheet"><% } %>
     <style>
         .spinner-content-page {
@@ -26,7 +28,9 @@
 <body>
 <div id="root">
     <div class="spinner-content-page">Loading...</div>
-</div><% for (var chunk in htmlWebpackPlugin.files.chunks) { %>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+<% for (var chunk in htmlWebpackPlugin.files.chunks) { %>
 <script type="text/javascript" src="<%=htmlWebpackPlugin.files.chunks[chunk].entry %>"></script><% } %>
 </body>
 </html>
