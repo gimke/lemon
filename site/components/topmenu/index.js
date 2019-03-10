@@ -14,17 +14,6 @@ class Menu extends React.Component {
     render() {
         return <header className="header">
             <img className="logo" src="images/logo.svg"/>
-            <ul className="nav-menu">
-                <li>
-                    <NavLink className="nav-link" to="/nodes">Nodes</NavLink>
-                </li>
-                <li>
-                    <NavLink className="nav-link" to="/services">Services</NavLink>
-                </li>
-                <li>
-                    <NavLink className="nav-link" to="/explorer">Explorer</NavLink>
-                </li>
-            </ul>
             <ul className="nav-menu ml-auto">
                 <li>
                     <a className="nav-link nav-icon" href="https://github.com/gimke/lemon-ui" target="_blank">

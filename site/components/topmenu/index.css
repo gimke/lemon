@@ -5,7 +5,7 @@
   height: 64px;
   align-items: center;
   background: var(--white);
-  box-shadow: var(--boxShadowLight);
+  box-shadow: var(--box-shadow-light);
   & img.logo {
     width: 48px;
     height: 48px;
@@ -29,7 +29,7 @@
         transition: all .2s ease-out;
         &.nav-link {
           &.active {
-            background: var(--mainBlue);
+            background: var(--main-blue);
             color: var(--white);
           }
         }

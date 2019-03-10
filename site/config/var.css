@@ -1,9 +1,5 @@
 :root {
-  --mainBlue: #408cea;
-  --mainGreen: #3fba66;
-  --mainRed: #e6443b;
-  --mainYellow: #fbc12c;
-  --mainPurple: #6654C6;
+  --main-blue: #408cea;
 
   --black: #000;
   --heading-color: color(#000 a(90%));
