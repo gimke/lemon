@@ -6,7 +6,6 @@
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
     <title><%= htmlWebpackPlugin.options.title %></title><% for (var css in htmlWebpackPlugin.files.css) { %>
     <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.25.2/theme/monokai.min.css" />
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/github.min.css" />
     <link href="<%=htmlWebpackPlugin.files.css[css] %>" rel="stylesheet"><% } %>
     <style>
