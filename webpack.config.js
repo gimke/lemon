@@ -52,7 +52,7 @@ module.exports = {
         console: './site/main.js'
     },
     output: {
-        path: path.resolve(__dirname, './static'),
+        path: path.resolve(__dirname, './docs'),
         filename: filename + '.js',
         publicPath: publicPath
     },
