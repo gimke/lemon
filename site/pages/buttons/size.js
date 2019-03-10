@@ -10,7 +10,6 @@ import CodeBlock from "../../components/codeblock"
 const input = `
 > size: \`large\`,\`default\`,\`small\`
 
-
 \`\`\`javascript
 import React from "react";
 import {Button} from "lemon-ui";
@@ -24,9 +23,11 @@ export default () => <div>
 `;
 
 export default () => <div>
-    <Button size="large">large</Button>
-    <Button>default</Button>
-    <Button size="small">small</Button>
+    <div className="examples">
+        <Button size="large">large</Button>
+        <Button>default</Button>
+        <Button size="small">small</Button>
+    </div>
     <div className="markdown">
         <ReactMarkdown source={input} renderers={{code: CodeBlock}} />
     </div>

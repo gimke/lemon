@@ -22,8 +22,10 @@ export default () => <div>
 `;
 
 export default () => <div>
-    <Button disabled>disabled</Button>
-    <Button>default</Button>
+    <div className="examples">
+        <Button disabled>disabled</Button>
+        <Button>default</Button>
+    </div>
     <div className="markdown">
         <ReactMarkdown source={input} renderers={{code: CodeBlock}} />
     </div>
