@@ -3,7 +3,6 @@
  */
 import Config from "config";
 import React from "react";
-import {Icon} from "antd";
 import Loadable from "react-loadable";
 import {matchPath} from "react-router-dom";
 import BrowserHistory from "../history/browserhistory";
@@ -97,6 +96,11 @@ class Common {
     graphql = (cmd, cb) => {
         this.graphqlUrl(Config.host + "/api", cmd, cb);
     };
+    loading = () => <div className="spinner-content-page">Loading...</div>;
+    loaderWrapper = (loader) => Loadable({
+        loader,
+        loading: this.loading
+    });
     generateRandomString = (length) => {
         length = length || 32;
         let source = "abcdefghzklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";

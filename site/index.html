@@ -24,7 +24,7 @@
 </head>
 <body>
 <div id="root">
-    <div class="spinner-content-page">loading...</div>
+    <div class="spinner-content-page">Loading...</div>
 </div><% for (var chunk in htmlWebpackPlugin.files.chunks) { %>
 <script type="text/javascript" src="<%=htmlWebpackPlugin.files.chunks[chunk].entry %>"></script><% } %>
 </body>

@@ -11,11 +11,18 @@ import React from "react";
 import {render} from "react-dom";
 import {Provider} from "react-redux";
 import {Route, Router, Switch} from "react-router-dom";
+import HashHistory from "./history/hashhistory";
 import Store from "./store";
-import App from "./app";
+import App from "./pages/app";
+
+// import Common from "./common";
+// const App = Common.loaderWrapper(() => import(/* webpackChunkName: "app" */'./pages/app'));
 
 const router = <Provider store={Store}>
-    <App/>
-</Provider>;
+    <Router history={HashHistory}>
+        <Switch>
+            <Route strict path="/" component={App}/>
+        </Switch>
+    </Router></Provider>;
 
 render(router, document.getElementById('root'));
