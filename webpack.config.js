@@ -49,7 +49,7 @@ const babelLoader = {
 module.exports = {
     mode: env,
     entry: {
-        console: './site/main.js'
+        index: './site/main.js'
     },
     output: {
         path: path.resolve(__dirname, './docs'),
@@ -81,7 +81,7 @@ module.exports = {
             title: '工作台',
             hash: false,
             inject: false,
-            filename: 'console.html',
+            filename: 'index.html',
             template: './site/index.html'
         }),
         new MiniCssExtractPlugin({
