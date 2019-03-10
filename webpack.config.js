@@ -78,7 +78,7 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            title: '工作台',
+            title: 'lemon-ui',
             hash: false,
             inject: false,
             filename: 'index.html',
