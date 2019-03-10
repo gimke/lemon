@@ -1,9 +1,6 @@
 /**
  * Created by yanggang on 2019/3/8.
  */
-/**
- * Created by yanggang on 2018/10/22.
- */
 import "whatwg-fetch";
 import "promise-polyfill/src/polyfill";
 

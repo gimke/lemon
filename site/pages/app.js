@@ -1,13 +1,13 @@
 import React from "react";
 
 import TopMenu from "../components/topmenu";
-import SideMenu from "../components/sidemenu";
 import "../../src/menu/style";
 import {Menu} from "../../src";
 import "./app.css";
-import {NavLink} from 'react-router-dom'
+import {NavLink,Route, Router, Switch} from 'react-router-dom'
+import Common from "../common"
 
-import Buttons from "./buttons";
+const Buttons = Common.loaderWrapper(() => import(/* webpackChunkName: "buttons" */'./buttons'));
 
 class App extends React.PureComponent {
 
@@ -29,7 +29,12 @@ class App extends React.PureComponent {
                     </Menu.Item>
                 </Menu>
                 <div className="content">
-                    <Buttons />
+                    <Switch>
+                        <Route strict path="/button" component={Buttons}/>
+                        <Route strict path="/input" component={() => {
+                            return <div>input</div>
+                        }}/>
+                    </Switch>
                 </div>
             </div>
         </React.Fragment>
