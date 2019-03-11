@@ -17,6 +17,7 @@ import {Button} from "lemon-ui";
 export default () => <div>
     <Button type="primary">primary</Button>
     <Button>default</Button>
+    <Button disabled>disabled</Button>
 </div>
 \`\`\`
 `;
@@ -25,6 +26,7 @@ export default () => <div>
     <div className="examples">
         <Button type="primary">primary</Button>
         <Button>default</Button>
+        <Button disabled>disabled</Button>
     </div>
     <div className="markdown">
         <ReactMarkdown source={input} renderers={{code: CodeBlock}} />

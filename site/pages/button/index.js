@@ -5,7 +5,6 @@ import React from "react";
 
 import ButtonTypes from "./types"
 import ButtonSize from "./size"
-import ButtonDisabled from "./disabled"
 import ReactMarkdown from "react-markdown"
 import CodeBlock from "../../components/codeblock"
 
@@ -31,7 +30,6 @@ export default () => {
         </div>
         <ButtonTypes/>
         <ButtonSize/>
-        <ButtonDisabled/>
         <div className="markdown">
             <ReactMarkdown source={input} renderers={{code: CodeBlock}} />
         </div>
