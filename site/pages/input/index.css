@@ -1,0 +1,5 @@
+.input-wrapper {
+  & .lemon-input {
+    margin-right: 8px;
+  }
+}

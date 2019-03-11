@@ -7,7 +7,9 @@ import "./app.css";
 import {NavLink,Route, Router, Switch} from 'react-router-dom'
 import Common from "../common"
 
-const Buttons = Common.loaderWrapper(() => import(/* webpackChunkName: "buttons" */'./buttons'));
+const Button = Common.loaderWrapper(() => import(/* webpackChunkName: "button" */'./button'));
+const Input = Common.loaderWrapper(() => import(/* webpackChunkName: "input" */'./input'));
+const Checkbox = Common.loaderWrapper(() => import(/* webpackChunkName: "checkbox" */'./checkbox'));
 
 class App extends React.PureComponent {
 
@@ -18,7 +20,6 @@ class App extends React.PureComponent {
     render() {
         return <React.Fragment>
             <TopMenu />
-
             <div className="main-wrapper">
                 <Menu type="vertical">
                     <Menu.Item>
@@ -27,13 +28,15 @@ class App extends React.PureComponent {
                     <Menu.Item>
                         <NavLink to="/input">Input</NavLink>
                     </Menu.Item>
+                    <Menu.Item>
+                        <NavLink to="/checkbox">Checkbox</NavLink>
+                    </Menu.Item>
                 </Menu>
                 <div className="content">
                     <Switch>
-                        <Route strict path="/button" component={Buttons}/>
-                        <Route strict path="/input" component={() => {
-                            return <div>input</div>
-                        }}/>
+                        <Route strict path="/button" component={Button}/>
+                        <Route strict path="/input" component={Input}/>
+                        <Route strict path="/checkbox" component={Checkbox}/>
                     </Switch>
                 </div>
             </div>

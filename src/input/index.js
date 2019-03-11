@@ -44,7 +44,7 @@ export default class Input extends Component {
     };
 
     static propTypes = {
-        size: PropTypes.oneOf(['small', 'large']),
+        size: PropTypes.oneOf(['large', 'default', 'small']),
     };
 
     static defaultProps = {
