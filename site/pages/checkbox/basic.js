@@ -26,7 +26,7 @@ export default () => <div>
 `;
 
 const groupinput = `
-> basic usage
+> group usage
 
 \`\`\`javascript
 import React from "react";
