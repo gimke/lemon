@@ -24,7 +24,7 @@ export default () => <div>
 export default () => <div>
     <div className="examples">
         <Input placeholder="Name"/>
-        <Input disabled/>
+        <Input disabled placeholder="disabled"/>
     </div>
     <div className="markdown">
         <ReactMarkdown source={input} renderers={{code: CodeBlock}} />

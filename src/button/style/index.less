@@ -16,12 +16,12 @@
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   &[disabled] {
     color: @text-color-secondary;
-    background: @border-color-split;
+    background: @disable-color;
     border: 1px solid @border-color-base;
     box-shadow: none;
     &:hover, &:focus, &:active {
       color: @text-color-secondary;
-      background: @border-color-split;
+      background: @disable-color;
       border: 1px solid @border-color-base;
       box-shadow: none;
     }
