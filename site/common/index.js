@@ -6,6 +6,25 @@ import React from "react";
 import Loadable from "react-loadable";
 import {matchPath} from "react-router-dom";
 import BrowserHistory from "../history/browserhistory";
+import NProgress from "nprogress"
+import "nprogress/nprogress.css"
+
+class loading extends React.PureComponent {
+    constructor(props) {
+        super(props);
+    }
+
+    componentWillMount() {
+        NProgress.set(0.3);
+    }
+    componentWillUnmount() {
+        NProgress.done();
+        NProgress.remove();
+    }
+    render() {
+        return null
+    }
+}
 
 class Common {
     status = {
@@ -96,10 +115,10 @@ class Common {
     graphql = (cmd, cb) => {
         this.graphqlUrl(Config.host + "/api", cmd, cb);
     };
-    loading = () => <div className="spinner-content-page">Loading...</div>;
+    // loading = () => <div className="spinner-content-page">Loading...</div>;
     loaderWrapper = (loader) => Loadable({
         loader,
-        loading: this.loading
+        loading: loading
     });
     generateRandomString = (length) => {
         length = length || 32;
