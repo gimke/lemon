@@ -4,8 +4,8 @@ import TopMenu from "../components/topmenu";
 import "../../src/menu/style";
 import {Menu} from "../../src";
 import "./app.css";
-import {NavLink,Route, Router, Switch} from 'react-router-dom'
-import Common from "../common"
+import {NavLink, Redirect, Route, Switch} from "react-router-dom";
+import Common from "../common";
 
 const Button = Common.loaderWrapper(() => import(/* webpackChunkName: "button" */'./button'));
 const Input = Common.loaderWrapper(() => import(/* webpackChunkName: "input" */'./input'));
@@ -34,6 +34,7 @@ class App extends React.PureComponent {
                 </Menu>
                 <div className="content">
                     <Switch>
+                        <Redirect exact path="/" to="/button"/>
                         <Route strict path="/button" component={Button}/>
                         <Route strict path="/input" component={Input}/>
                         <Route strict path="/checkbox" component={Checkbox}/>
