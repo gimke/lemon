@@ -25,7 +25,7 @@ const input = `
 `;
 
 export default () => {
-    return <div className="button">
+    return <div className="button-wrapper">
         <div className="markdown">
             <ReactMarkdown source={`## Examples`} renderers={{code: CodeBlock}} />
         </div>
