@@ -3,9 +3,10 @@ import React from "react";
 import TopMenu from "../components/topmenu";
 import "../../src/menu/style";
 import {Menu} from "../../src";
-import "./app.css";
 import {NavLink, Redirect, Route, Switch} from "react-router-dom";
 import Common from "../common";
+
+import "./app.css";
 
 const Button = Common.loaderWrapper(() => import(/* webpackChunkName: "button" */'./button'));
 const Input = Common.loaderWrapper(() => import(/* webpackChunkName: "input" */'./input'));
