@@ -4,6 +4,7 @@
 
 .@{menu-prefix-class} {
   line-height: 46px;
+  font-size: 14px;
   &.@{menu-prefix-class}-horizontal {
     & .@{menu-prefix-class}-item {
       display: inline-block;
@@ -11,9 +12,14 @@
         display: inline-block;
         padding: 0 20px;
         border-bottom: 2px solid transparent;
-        transition: border-color .2s ease-out;
-        &.active, &:hover {
+        transition: border-color .3s ease-out;
+        &.active {
           border-bottom: 2px solid @primary-color;
+          color: @primary-color;
+        }
+        &:hover {
+          border-bottom: 2px solid @primary-color;
+          color: @primary-color;
         }
       }
     }
@@ -24,11 +30,11 @@
       & > * {
         display: block;
         padding: 0 20px;
-        border-right: 3px solid transparent;
-        transition: border-color .2s ease-out, background-color .2s ease-out;;
-        &.active, &:hover {
-          background: @primary-1;
-          border-right: 3px solid @primary-color;
+        &.active {
+          color: @primary-color;
+        }
+        &:hover {
+          background: @border-color-split;
         }
       }
     }
