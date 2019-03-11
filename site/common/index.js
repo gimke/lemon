@@ -7,7 +7,6 @@ import Loadable from "react-loadable";
 import {matchPath} from "react-router-dom";
 import BrowserHistory from "../history/browserhistory";
 import NProgress from "nprogress"
-import "nprogress/nprogress.css"
 
 class loading extends React.PureComponent {
     constructor(props) {
