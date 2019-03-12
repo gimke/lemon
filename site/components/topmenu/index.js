@@ -13,7 +13,7 @@ class Menu extends React.Component {
 
     render() {
         return <header className="header">
-            <img className="logo" src="images/logo.svg"/>
+            <img className="logo" src="images/logo.png"/>
             Lemon Ui
             <ul className="nav-menu ml-auto">
                 <li>
