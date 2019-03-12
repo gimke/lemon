@@ -12,7 +12,6 @@ class loading extends React.PureComponent {
     constructor(props) {
         super(props);
     }
-
     componentWillMount() {
         NProgress.set(0.3);
     }
