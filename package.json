@@ -18,7 +18,7 @@
     "build:commonjs": "babel src/ --out-dir lib/ --plugins @babel/plugin-transform-modules-commonjs --copy-files --ignore **/__tests__,**/__mocks__",
     "build:es": "babel src/ --out-dir es/ --copy-files --ignore **/__tests__,**/__mocks__",
     "build": "npm-run-all clean:* --parallel build:*",
-    "prepublish": "npm --no-git-tag-version version patch && npm run build"
+    "prepublish": "npm version patch && npm run build"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.0",
